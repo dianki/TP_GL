@@ -17,11 +17,11 @@ public class Panier {
     
     
 
-   public Panier( int t, ArrayList<Orange> O)
+   public Panier( int t)
 
 {
     this.taillemax= t; 
-    this.List=O;
+    this.List= new ArrayList<Orange> (t);
 }
    
    public boolean estPlein()
@@ -44,10 +44,35 @@ public class Panier {
    public String toString()
    {
        String s ="";
+        s+= Integer.toString(taillemax);
        for( int i=0; i<List.size(); i++)
             s+= List.get(i).toString();
-       
-            
+              
        return s;
    }
+   @Override
+    public boolean equals (Object O)
+    {
+        if(this==O) return true;
+        if(O==null) return false;
+        if (!(O instanceof Orange))return false;
+        Panier P1 = (Panier) O;
+        Panier P2 = (Panier) O;
+        return P1.equals(O) && P2.equals(O);
+    }
+        public void  ajouter(Orange O) 
+        { 
+            if(!this.estPlein())
+            this.List.add(O);
+            else
+            System.out.println("le panier est plein");
+         }
+        
+        public void  retirer(Orange O) 
+        { 
+            if(!this.estVide())
+            this.List.remove(O);
+            else
+            System.out.println("le panier est vide");
+         }
 }
