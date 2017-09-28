@@ -41,9 +41,13 @@ public class Panier {
        return false;
    }
    
-   public String toString(){
-       String s ="ggggg";
-       for( int i= 0; List.size();i++)
+   public String toString()
+   {
+       String s ="";
+       for( int i=0; i<List.size(); i++)
             s+= List.get(i).toString();
+       
+            
+       return s;
    }
 }
