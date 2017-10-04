@@ -10,6 +10,7 @@ package fr.ufrsciencestech.panier;
  * @author mb423917
  */
 import java.util.*; 
+@SuppressWarnings("EqualsAndHashcode")
 public class Panier {
     
     private int taillemax;
@@ -28,22 +29,22 @@ public class Panier {
    {
    int t = this.List.size();
    if( t == taillemax ) 
-       return false;
-   else 
        return true;
+   else 
+       return false;
    }
    
    public boolean estVide()
    {
    int t= this.List.size();
-   if(t!=taillemax) return true;
+   if(t==0) return true;
    else 
        return false;
    }
-   
+    @Override
    public String toString()
    {
-       String s ="";
+       String s ="le panier est bien rempli\n";
         s+= Integer.toString(taillemax);
        for( int i=0; i<List.size(); i++)
             s+= List.get(i).toString();
@@ -75,4 +76,24 @@ public class Panier {
             else
             System.out.println("le panier est vide");
          }
+
+        public double getPrixP()
+          {       double  P=0;
+        
+             for( int i=0; i< this.List.size(); i++)
+            {
+                P+= this.List.get(i).getPrix();
+                }
+             
+                    return P;
+                }
+        
+        public void Boycotte(String O)
+        {
+        for( int i=0; i< this.List.size(); i++)
+            {
+                if(this.List.get(i).getOrigine()==O)
+                    this.List
+                }
+        }
 }
