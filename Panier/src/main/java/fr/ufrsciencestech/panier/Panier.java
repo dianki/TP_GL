@@ -41,6 +41,15 @@ public class Panier {
    else 
        return false;
    }
+   public int getSize()
+   {
+        return this.List.size();
+   }
+   
+   public Orange getOrange(int n)
+   {
+     return this.List.get(n);
+   }
     @Override
    public String toString()
    {
@@ -52,14 +61,15 @@ public class Panier {
        return s;
    }
    @Override
-    public boolean equals (Object O)
-    {
-        if(this==O) return true;
-        if(O==null) return false;
-        if (!(O instanceof Orange))return false;
-        Panier P1 = (Panier) O;
-        Panier P2 = (Panier) O;
-        return P1.equals(O) && P2.equals(O);
+    public boolean equals (Object Obj)
+    {if (!(Obj instanceof Panier && Obj==null))
+        {
+            
+           Panier P1 = (Panier) Obj;
+         return (this.List.equals(P1.getOrange(n)) && this.taillemax==P1.getSize());
+           
+        }
+     return false;
     }
         public void  ajouter(Orange O) 
         { 
@@ -92,8 +102,8 @@ public class Panier {
         {
         for( int i=0; i< this.List.size(); i++)
             {
-                if(this.List.get(i).getOrigine()==O)
-                    this.List
+                if(this.List.get(i).getOrigine() == null ? O == null : this.List.get(i).getOrigine().equals(O))
+                    this.List.remove(i);
                 }
         }
 }
